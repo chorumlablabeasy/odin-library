@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button id="addBookBtn">New Book</button>
+        <div class="book-container"></div>
+        <dialog id="bookDialog">
+            <form method="dialog" id="bookForm">
+                <h2>Add New Book</h2>
+                <label>
+                    Title:
+                    <input type="text" id="bookTitle" required autocomplete="off">
+                </label>
+                <label>
+                    Author:
+                    <input type="text" id="bookAuthor" required autocomplete="off">
+                </label>
+                <label>
+                    Pages:
+                    <input type="number" id="bookPage" required autocomplete="off">
+                </label>
+                <label>
+                    Publication of Year:
+                    <input type="number" id="bookYear" required autocomplete="off">
+                </label>
+                <menu>
+                    <button class="btn" type="submit" id="submitBtn">Add</button>
+                    <button class="btn" type="button" id="cancelBtn">Cancel</button>
+                </menu>
+            </form>
+        </dialog>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
