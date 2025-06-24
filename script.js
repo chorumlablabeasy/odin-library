@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+/*
 function Book(title, author, page, publicationYear) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
@@ -15,6 +16,23 @@ function Book(title, author, page, publicationYear) {
 Book.prototype.toggleRead = function () {
     this.read = !this.read;
 };
+*/
+
+class Book {
+
+    constructor(title, author, page, publicationYear) {
+        this.id = crypto.randomUUID();
+        this.read = false
+        this.title = title;
+        this.author = author;
+        this.page = page;
+        this.publicationYear = publicationYear;
+    }
+
+    toggleRead() {
+        this.read = !this.read;
+    }
+}
 
 function addBookToLibrary(title, author, page, publicationYear) {
     const book = new Book(title, author, page, publicationYear);
@@ -34,7 +52,7 @@ function renderLibrary() {
         deleteBtn.classList.add("btn", "deleteBtn")
         const bookİnfo = document.createElement("p")
 
-        readBtn.textContent = book.read ? "Marked as Read" : "Marked as Unread";
+        readBtn.textContent = book.read ? "✔ Read" : "✘ Not yet Read";
         deleteBtn.textContent = "Delete"
 
         deleteBtn.addEventListener("click", () => {
@@ -47,7 +65,7 @@ function renderLibrary() {
         });
         readBtn.addEventListener("click", () => {
             book.toggleRead();
-            readBtn.textContent = book.read ? "Marked as Read" : "Marked as Unread";
+            readBtn.textContent = book.read ? "✔ Read" : "✘ Not yet Read";
         })
 
         card.classList.add("card")
@@ -61,6 +79,7 @@ function renderLibrary() {
         bookContainer.appendChild(card);
     })
 }
+
 
 const dialog = document.getElementById("bookDialog");
 const form = document.getElementById("bookForm");
